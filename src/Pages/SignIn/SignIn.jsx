@@ -1,7 +1,9 @@
+import Layout from "../../Layout/Layout";
+
 function SingIn() {
   return (
     <>
-      <div className='bg-red-200'>SingIn</div>
+      <Layout>Home</Layout>
     </>
   );
 }

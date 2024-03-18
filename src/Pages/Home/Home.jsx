@@ -1,7 +1,10 @@
+import Layout from "../../Layout/Layout"
+
+
 function Home() {
   return (
     <>
-      <div className='bg-red-200'>Home</div>
+      <Layout>Home</Layout>
     </>
   )
 }
