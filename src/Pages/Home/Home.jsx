@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react"
-import Layout from "../../Layout/Layout"
-import Card from "../../Components/Card/Card"
+import { useState, useEffect } from "react";
+import Layout from "../../Layout/Layout";
+import Card from "../../Components/Card/Card";
+import ProductDetail from "../../Components/ProductDetail/ProductDetail";
 
 function Home() {
   const [items, setItems] = useState(null)
@@ -11,7 +12,6 @@ function Home() {
       try {
         const res = await fetch(API);
         const data = await res.json();
-        console.log(data);
         setItems(data);
       } catch (error) {
         console.error('Error', error);
@@ -32,10 +32,12 @@ function Home() {
               price={item.price}
               category={item.category}
               image={item.image}
+              description={item.description}
             />
           ))
           }
         </div>
+        <ProductDetail />
       </Layout>
       
     </>
