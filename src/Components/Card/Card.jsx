@@ -5,11 +5,18 @@ import { ShoppingCartContext } from '../../Context/Context';
 
 const Card = ({title, price, category, image, description}) => {
   const context = useContext(ShoppingCartContext);
-  console.log(description);
 
   const showProduct = (productDetail) => {
     context.openProductDetail();
     context.setProductToShow(productDetail);
+  }
+
+  const addProductToCart = (event, productData) => {
+    event.stopPropagation();
+    context.setCount(context.count + 1);
+    context.setCartProducts([...context.cartProducts, productData]);
+    context.openCheckoutSideMenu();
+    context.closeProductDetail();
   }
 
   return (
@@ -26,7 +33,7 @@ const Card = ({title, price, category, image, description}) => {
         />
         <button 
           className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1"
-          onClick={() => context.setCount(context.count + 1)}
+          onClick={(event) => addProductToCart(event, {title, price, category, image, description})}
         >
           <PlusIcon className='h-6 w-6' />
         </button>
