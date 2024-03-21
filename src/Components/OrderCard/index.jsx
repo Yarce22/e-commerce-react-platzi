@@ -27,7 +27,7 @@ const OrderCard = props => {
 OrderCard.propTypes = {
   id: PropTypes.number,
   title: PropTypes.string,
-  imageUrl: PropTypes.string,
+  imageUrl: PropTypes.array,
   price: PropTypes.number,
   handleDelete: PropTypes.func
 }
